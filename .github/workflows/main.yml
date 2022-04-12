@@ -30,13 +30,13 @@ jobs:
         run: npm install
         
       # Runs a single command using the runners shell
-      - name: NPM build
-        run: npm run build
+      - name: Vite build for /vuehamster/ context
+        run: npx vite build --base=/vuehamster/
 
       - name: NPM test
         run: npx vitest run --environment jsdom
         
-      - name: deploy to hm10.net
+      - name: Deploy to hm10.net/vuehamster
         uses: burnett01/rsync-deployments@5.2
         with:
           switches: -avzr --delete
